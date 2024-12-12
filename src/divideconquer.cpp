@@ -28,9 +28,12 @@ Divideconquer::Divideconquer(int n)
 
     auto end = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double, std::micro> elapsed = end - start;
-
-    std::cout << "The shortest distance is: " << minimum_distance << "\n";
+    /*
+    std::cout << "D&D Distance: " << minimum_distance << "\n";
     std::cout << "Time taken: " << elapsed.count() << " microseconds\n";
+    */
+    runtime = elapsed.count();
+    closest_pair_distance = minimum_distance;
 }
 
 Divideconquer::~Divideconquer()
