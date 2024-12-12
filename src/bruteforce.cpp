@@ -38,10 +38,12 @@ Bruteforce::Bruteforce(int n)
     }
 
     auto end = std::chrono::high_resolution_clock::now();
-    std::chrono::duration<double, std::milli> elapsed = end - start;
+    std::chrono::duration<double, std::micro> elapsed = end - start;
 
     std::cout << "Closest pair: (" << p1.x << ", " << p1.y << ") and ("
               << p2.x << ", " << p2.y << ") with distance " << minimum_distance << "\n";
+
+    std::cout << "Time taken: " << elapsed.count() << " microseconds\n";
 }
 
 Bruteforce::~Bruteforce()
