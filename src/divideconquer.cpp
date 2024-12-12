@@ -21,8 +21,8 @@ Divideconquer::Divideconquer(int n)
 
     auto start = std::chrono::high_resolution_clock::now();
 
-    std::sort(points.begin(), points.end(), [](Point const &a, Point const &b) -> bool
-              { return a.x < b.x; });
+    std::sort(points.begin(), points.end(), [](Point const &i, Point const &j) -> bool
+              { return i.x < j.x; });
 
     double minimum_distance = recursive_closest_pair(points, n);
 
@@ -85,6 +85,9 @@ double Divideconquer::recursive_closest_pair(std::vector<Point> &points, int n)
             strip.push_back(points[i]);
         }
     }
+
+    std::sort(strip.begin(), strip.end(), [](Point const &i, Point const &j) -> bool
+              { return i.y < j.y; });
 
     double strip_distance = std::numeric_limits<double>::max();
     for (size_t i = 0; i < strip.size(); i++)
